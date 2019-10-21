@@ -1,0 +1,43 @@
+#include <cmath>
+#include <iostream>
+
+enum{
+    TWO = 2,
+    FOUR = 4
+};
+int main()
+{
+    std::cout << "ax2 + bx + c = 0" << "\n" << "D = b^2 — 4 * a * c" << std::endl;
+    std::cout << "Please enter number in range [2..255]" << std::endl;
+    double value_a = 0; 
+    std::cin>> value_a;
+    
+    if(value_a > 2 && value_a < 225){
+        std::cout << "Please enter number in range [-225..255]" << std::endl;
+        double value_b = 0;
+        std::cin>> value_b;
+        
+        if(value_b > -225 && value_b < 225){
+            std::cout << "Please enter number in range [-225..255]" << std::endl;
+            double value_c = 0;
+            std::cin>> value_c;
+            const double VALUE_D = std::sqrt((value_b * value_b) - (4 * value_a * value_c));
+            if((value_c > -225 && value_c < 225) && VALUE_D >= 0 ){
+                double first_x = (- value_b - VALUE_D) / (value_a * 2);
+                double second_x =  (- value_b + VALUE_D) / (value_a * 2);
+                
+                std::cout << "first_x = " << first_x << "\n" << "second_x = " << second_x << std::endl;
+            }
+            else{
+                std::cout << "You entered an incorrect number, try entering the number again" << std::endl;
+            }
+        
+        }
+        else{
+            std::cout << "You entered an incorrect number, try entering the number again" << std::endl;
+        }
+    }
+    else{
+        std::cout << "You entered an incorrect number, try entering the number again" << std::endl;
+    }
+}
